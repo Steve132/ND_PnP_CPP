@@ -24,11 +24,11 @@ int main(int argc,char** argv)
 	
 	
 	Eigen::MatrixXd Xc,Yc;
-	/*
+	
 	Xc=X;Yc=Yno_w;
 	Eigen::MatrixXd Fqr=PnP_dynamic_in_place(Yc,Xc,true,false);
 	Fqr/=Fqr(2,2); //normalize for scalar invariance for check
-	std::cout << "Fqr error:\n" << (Fqr-Fgt).norm() << std::endl;*/
+	std::cout << "Fqr error:\n" << (Fqr-Fgt).norm() << std::endl;
 	
 	Xc=X;Yc=Yno_w;
 	Eigen::MatrixXd Fsvd=PnP_dynamic_in_place(Yc,Xc,true,true);
