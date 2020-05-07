@@ -68,11 +68,11 @@ Eigen::MatrixXd PnP_dynamic_in_place(Eigen::MatrixXd& Y,Eigen::MatrixXd& X,bool 
 			throw std::runtime_error("Not enough sample points for this dimensionality of problem");
 		}
 		Eigen::MatrixXd A=Eigen::MatrixXd::Zero(l*N+(allow_last_element_zero ? 0 : 1),L*M);
-		Eigen::MatrixXd Ablock;
+		Eigen::MatrixXd Ablock(l,L*M);
 		
 		for(size_t i=0;i<N;i++)
 		{
-			Ablock=Eigen::MatrixXd::Zero(l,L*M);
+			Ablock.fill(0.0);
 			Eigen::RowVectorXd xT=X.col(i).transpose();
 			Eigen::VectorXd y=Y.col(i);
 			Ablock.rightCols(M)=-y.topRows(l)*xT; //outer product for homogenous section of block
