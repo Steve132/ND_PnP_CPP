@@ -55,7 +55,6 @@ Eigen::MatrixXd PnP_dynamic_in_place(Eigen::MatrixXd& Y,Eigen::MatrixXd& X,bool 
 	
 	Eigen::MatrixXd Px=precondition_in_place(X);
 	Eigen::MatrixXd Py=precondition_in_place(Y);
-
 	Eigen::MatrixXd Fp;
 	if(!ignore_Yw)
 	{
@@ -82,7 +81,6 @@ Eigen::MatrixXd PnP_dynamic_in_place(Eigen::MatrixXd& Y,Eigen::MatrixXd& X,bool 
 			}
 			A.block(i*l,0,l,L*M)=Ablock;
 		}
-		std::cout << A << std::endl;
 		
 		//std::cout << "A:\n" << A << std::endl;
 		//Y=FX
