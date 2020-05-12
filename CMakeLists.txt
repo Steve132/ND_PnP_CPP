@@ -8,7 +8,9 @@ add_library(PnPDynamic
 )
 target_include_directories(PnPDynamic PUBLIC deps)
 set_target_properties(PnPDynamic PROPERTIES CXX_STANDARD 11)
-
+if(NOT MSVC)
+target_compile_options(PnPDynamic PUBLIC "-march=native")
+endif()
 add_executable(pnp_tester
 	pnp_tester.cpp
 )
